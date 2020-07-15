@@ -4,6 +4,10 @@ $third-color-bg: #F2F2F2;
 $primary-text-color: #FFFFFF;
 
 @mixin max-height-width($height, $width) {
-  height: $height;
-  width: $width;
+  max-height: $height;
+  max-width: $width;
+}
+
+%font-family {
+  font-family: 'Lato', sans-serif;
 }

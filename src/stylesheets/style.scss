@@ -1,7 +1,17 @@
-@import 'helpers/reset';
-@import 'helpers/helpers';
+@import 'reset/reset';
+@import 'helpers/variables';
+@import 'helpers/placeholders';
+@import 'helpers/mixins';
+
+.appWrap{
+  @extend %font-family;
+
+  .headerWrap{
+    background-color: $secondary-color-bg;
+  }
+}
 
 
 .container{
-  font-family: 'Lato', sans-serif;
+  @include max-height-width(none, 1200px);
 }
