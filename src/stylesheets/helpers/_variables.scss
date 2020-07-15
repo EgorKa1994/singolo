@@ -1,13 +1,7 @@
 $primary-color-bg: #F06C64;
 $secondary-color-bg: #2D303A;
 $third-color-bg: #F2F2F2;
-$primary-text-color: #FFFFFF;
+$secondary-text-color: #FFFFFF;
 
-@mixin max-height-width($height, $width) {
-  max-height: $height;
-  max-width: $width;
-}
 
-%font-family {
-  font-family: 'Lato', sans-serif;
-}
+

@@ -1,0 +1,12 @@
+@mixin max-height-width($height, $width) {
+  max-height: $height;
+  max-width: $width;
+}
+
+@mixin font-style($size, $weight, $lineHeight, $letterSpacing, $transform) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+  text-transform:  $transform;
+}
