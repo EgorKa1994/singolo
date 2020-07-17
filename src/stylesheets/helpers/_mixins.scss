@@ -10,3 +10,16 @@
   letter-spacing: $letterSpacing;
   text-transform:  $transform;
 }
+
+@mixin height-width($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin position($pos, $top, $right, $bottom, $left) {
+  position: $pos;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
