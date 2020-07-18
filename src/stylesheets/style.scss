@@ -173,7 +173,7 @@ img{
     color: $grey-dark-color;
   }
 
-  .service-text {
+  .note {
     color: $text-common-color-dark;
     padding-bottom: 45px;
   }
@@ -207,6 +207,52 @@ img{
     img {
       @include height-width(60px, 60px);
     }
+  }
+}
+
+.portfolio-wrap {
+  background-color: $secondary-color;
+  border: 6px solid $border-color;
+
+  h1 {
+    color: $grey-dark-color;
+  }
+
+  .note {
+    color: $text-common-color-dark;
+    padding-bottom: 20px;
+  }
+
+  .filter-list {
+    margin: 0 -5px 18px;
+  }
+
+  .filter-list > div {
+    display: inline-block;
+    @include font-style(12px, normal, 12px, normal, none);
+    color: $text-common-color-dark;
+    padding: 5px 6px;
+    border: 1px solid $text-common-color-dark;
+    border-radius: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+
+    &:hover {
+      color: $white-color-second;
+      border-color: $white-color-second;
+    }
+  }
+
+  .portfolio_img {
+    @extend %flex-container;
+    margin: 0 -10px;
+    flex-wrap: wrap;
+    padding-bottom: 75px;
+  }
+
+  .portfolio_img > div{
+    margin: 10px;
+    width: calc(25% - 20px);
   }
 }
 
