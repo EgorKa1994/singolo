@@ -18,7 +18,7 @@ img{
 
 .header-wrap {
   background-color: $secondary-color;
-  color: $secondary-text-color;
+  color: $white-color;
   border-bottom: 6px solid $border-color;
 
   .header {
@@ -62,7 +62,7 @@ img{
 
           a {
             text-decoration: none;
-            color: $secondary-text-color;
+            color: $white-color;
 
             &:hover {
               color: $primary-color;
@@ -90,7 +90,7 @@ img{
 
   .arrow_right{
     @include height-width(27px, 16px);
-    @include position(absolute, 283px, 0, 0, 944px);
+    @include position(absolute, 283px, 0, 0, 98%);
   }
 
   .slider_content {
@@ -123,7 +123,7 @@ img{
       }
 
       .btn-home{
-        background-color: $secondary-text-color;
+        background-color: $white-color;
         @include height-width(41.88px, 41.88px);
         border-radius: 50%;
         @include position(absolute, 461px, 0, 0, 87.06px);
@@ -133,7 +133,7 @@ img{
           @include height-width(16.42px, 16.42px);
           border-radius: 20%;
           border: 3px solid #BABABA;
-          margin: 12px auto;
+          margin: 13px auto;
         }
       }
 
@@ -152,18 +152,75 @@ img{
         border-radius: 2%;
       }
 
-      .phone-horizontal_shadow{
-        @include position(absolute, 32px, 0, 0, 0);
-      }
-
-      .horizontal{
-        transform: rotate(90deg);
+      .phone-horizontal_shadow {
+        @include position(absolute, 29px, 0, 0, 0);
       }
     }
-    .horizontal{
+
+    .horizontal {
       transform: rotate(90deg);
-      left: 190px;
+      left: 23%;
     }
   }
+}
+
+.service-wrap {
+  background-color: $third-color;
+  min-height: 500px;
+  border-bottom: 6px solid $white-color;
+
+  .service-title {
+    color: $grey-dark-color;
+  }
+
+  .service-text {
+    color: $text-common-color-dark;
+    padding-bottom: 45px;
+  }
+
+  .service-list {
+    @extend %flex-container;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 0 -10px;
+
+    .service-list_block {
+      width: calc(33% - 20px);
+      margin: 10px;
+    }
+
+    .service_info{
+      @include font-style(12px, normal, 24px, normal, none);
+      color: $text-common-color-dark;
+    }
+  }
+
+  .service-list > div {
+    @extend %flex-container;
+    align-items: flex-start;
+    color: $grey-dark-color;
+  }
+
+  .service-img {
+    padding-right: 20px;
+
+    img {
+      @include height-width(60px, 60px);
+    }
+  }
+}
+
+h1 {
+  @include font-style(30px, 900, 36px, normal, none);
+  padding: 59px 0 18px 0;
+}
+
+p {
+  @include font-style(18px, 300, 30px, normal, none);
+}
+
+h2 {
+  @include font-style(18px, 900, 18px, normal, none);
+  padding-bottom: 7px;
 }
 
