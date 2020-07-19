@@ -75,8 +75,7 @@ img{
 }
 
 .slider-wrap {
-  background-color: $primary-color;
-  border-bottom: 6px solid $border-color-slider;
+  @extend %red-bg;
   height: 600px;
 
   .slider {
@@ -297,9 +296,109 @@ img{
         }
       }
     }
+  }
+}
 
+.form-wrap {
+  @extend %red-bg;
 
+  .form-title {
+    color: $pink-color;
+  }
 
+  .note {
+    @extend %note-style-grey-bg;
+    color: $pink-color;
+  }
+
+  .form-contact {
+    @extend %flex-container;
+    align-items: flex-start;
+    margin: 0 -10px;
+
+    .form-contact__fields {
+      margin: -8px 10px;
+      width: calc(65.5% - 10px);
+
+      input, textarea {
+        display: block;
+        background-color: $input-bg-color;
+        border-radius: 5px;
+        @include height-width(38px, 100%);
+        resize: none;
+        margin: 8px 0;
+        border: none;
+        @extend %font-family;
+        padding-left: 14px;
+        color: $pink-color;
+      }
+
+      textarea {
+        padding-top: 5px;
+        min-height: 159px;
+      }
+
+      input::-webkit-input-placeholder {
+        color: $input-text-color;
+        @extend %font-family;
+      }
+
+      input::-moz-placeholder {
+        color: $input-text-color;
+        @extend %font-family;
+      }
+
+      textarea::placeholder {
+        color: $input-text-color;
+        font-family: 'Lato', sans-serif;
+      }
+
+      input:focus, textarea:focus {
+        outline: 0;
+        box-shadow: 0px 0px 11px 2px $pink-color;
+      }
+
+      .btn-submit {
+        width: 136px;
+        background-color: $input-bg-btn;
+        @include font-style(14px, bold, 17px, normal, uppercase);
+        color: $input-color-btn;
+        padding: 11px 0;
+      }
+    }
+
+    .form-contact__info {
+      color: $pink-color;
+      margin: 0 10px;
+      width: calc(34.5% - 10px);
+
+      .form-contact__info_note {
+        @extend %list-info-grey-bg;
+        padding-bottom: 20px;
+        color: $pink-color;
+      }
+
+      .location, .phone, .mail {
+        @extend %list-info-grey-bg;
+        color: $pink-color;
+        line-height: 22px;
+      }
+
+      .location::before {
+        content: url(../img/form/ico-location.png);
+        margin-right: 15px;
+      }
+
+      .phone::before {
+        content: url(../img/form/ico-phone.png);
+        margin-right: 15px;
+      }
+
+      .mail::before {
+        content: url(../img/form/ico-mail.png);
+        margin-right: 15px;
+      }
+    }
   }
 }
 
