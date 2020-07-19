@@ -315,6 +315,7 @@ img{
     @extend %flex-container;
     align-items: flex-start;
     margin: 0 -10px;
+    padding-bottom: 67px;
 
     .form-contact__fields {
       margin: -8px 10px;
@@ -400,6 +401,28 @@ img{
       }
     }
   }
+}
+
+.footer-wrap {
+  background-color: $secondary-color;
+
+  .footer {
+    @extend %flex-container;
+    justify-content: space-between;
+    color: $grey-dark-color;
+    @include font-style(15px, 900, 18px, normal, none);
+
+    .footer__social {
+      margin: 0 -4px;
+      @extend %flex-container;
+      padding: 22px 0;
+    }
+
+    .footer__social > div {
+      margin: 0 4px;
+    }
+  }
+
 }
 
 h1 {
