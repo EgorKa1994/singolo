@@ -23,3 +23,10 @@
   bottom: $bottom;
   left: $left;
 }
+
+@mixin flex($display, $justifyContent, $alignItems, $wrap) {
+  display: $display;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-wrap: $wrap;
+}

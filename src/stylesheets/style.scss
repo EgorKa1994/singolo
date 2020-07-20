@@ -7,12 +7,26 @@
   @extend %font-family;
 }
 
-.container{
+h1 {
+  @include font-style(30px, 900, 36px, normal, none);
+  padding: 59px 0 18px 0;
+}
+
+p {
+  @include font-style(18px, 300, 30px, normal, none);
+}
+
+h2 {
+  @include font-style(18px, 900, 18px, normal, none);
+  padding-bottom: 7px;
+}
+
+.container {
   @include max-height-width(none, 960px);
   margin: 0 auto;
 }
 
-img{
+img {
   width: 100%;
 }
 
@@ -22,15 +36,14 @@ img{
   border-bottom: 6px solid $border-color;
 
   .header {
-    @extend %flex-container;
-    justify-content: space-between;
+    @include flex(flex, space-between, center, nowrap);
+    min-height: 95px;
 
     .header_title {
       @include font-style(25px, bold, 30px, -0.03em, uppercase);
-      padding: 29px 0 35px 0;
 
       span {
-        color:$primary-color;
+        color: $primary-color;
       }
     }
 
@@ -46,7 +59,7 @@ img{
           margin-right: 10px;
 
           &:before {
-            content: "\00B7";
+            content: '\00B7';
             margin-right: 11px;
           }
 
@@ -56,7 +69,7 @@ img{
 
           &:first-child {
             &:before {
-              content: " ";
+              content: ' ';
             }
           }
 
@@ -76,20 +89,20 @@ img{
 
 .slider-wrap {
   @extend %red-bg;
-  height: 600px;
+  min-height: 600px;
 
   .slider {
     position: relative;
   }
 
-  .arrow_left{
+  .arrow_left {
     @include height-width(27px, 16px);
-    @include position(absolute, 283px, 0, 0, 0);
+    @include position(absolute, 50%, 0, 0, 0);
   }
 
-  .arrow_right{
+  .arrow_right {
     @include height-width(27px, 16px);
-    @include position(absolute, 283px, 0, 0, 98%);
+    @include position(absolute, 50%, 0, 0, 98%);
   }
 
   .slider_content {
@@ -97,52 +110,51 @@ img{
     display: flex;
     position: relative;
 
-    .phone{
-      width: 240px;
-      height: 600px;
+    .phone {
+      @include height-width(540px, 240px);
       position: relative;
       right: -5px;
 
-      .phone-vertical_shadow{
+      .phone-vertical_shadow {
         @include height-width(483px, 240px);
         @include position(absolute, 54px, 0, 0, 0);
         z-index: 1;
       }
 
-      .phone_body{
+      .phone_body {
         @include height-width(458px, 216px);
         @include position(absolute, 54px, 0, 0, 0);
         z-index: 2;
       }
 
-      .phone_camera{
+      .phone_camera {
         @include height-width(9px, 9px);
         @include position(absolute, 70.5px, 0, 0, 104px);
         z-index: 3;
       }
 
-      .btn-home{
+      .btn-home {
         background-color: $white-color;
         @include height-width(41.88px, 41.88px);
         border-radius: 50%;
         @include position(absolute, 461px, 0, 0, 87.06px);
         z-index: 3;
 
-        .btn-home_inner{
+        .btn-home_inner {
           @include height-width(16.42px, 16.42px);
           border-radius: 20%;
-          border: 3px solid #BABABA;
+          border: 3px solid #bababa;
           margin: 13px auto;
         }
       }
 
-      .phone_speaker{
+      .phone_speaker {
         @include height-width(5px, 36px);
         @include position(absolute, 90px, 0, 0, 91px);
         z-index: 3;
       }
 
-      .screen-black{
+      .screen-black {
         @include height-width(333px, 191px);
         @include position(absolute, 119px, 0, 0, 13.5px);
         z-index: 3;
@@ -158,7 +170,149 @@ img{
 
     .horizontal {
       transform: rotate(90deg);
-      left: 23%;
+      left: 26%;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .slider-wrap {
+    min-height: 450px;
+
+    .arrow_left {
+      @include height-width(27px, 16px);
+      @include position(absolute, 50%, 0, 0, 3%);
+    }
+
+    .arrow_right {
+      @include height-width(27px, 16px);
+      @include position(absolute, 50%, 0, 0, 95%);
+    }
+
+    .slider_content {
+      margin: 0 80px;
+
+      .phone {
+        @include height-width(450px, 180.85px);
+
+        .phone-vertical_shadow {
+          @include height-width(363.74px, 180.85px);
+          @include position(absolute, 40px, 0, 0, 0);
+        }
+
+        .phone_body {
+          @include height-width(344.26px, 162.36px);
+          @include position(absolute, 40px, 0, 0, 0);
+        }
+
+        .phone_camera {
+          @include height-width(3px, 3px);
+          @include position(absolute, 45px, 0, 0, 78px);
+        }
+
+        .btn-home {
+          background-color: $white-color;
+          @include height-width(31.48px, 31.48px);
+          border-radius: 50%;
+          @include position(absolute, 345px, 0, 0, 66px);
+
+          .btn-home_inner {
+            @include height-width(12.35px, 12.35px);
+            border-radius: 20%;
+            border: 3px solid #bababa;
+            margin: 10px auto;
+          }
+        }
+
+        .phone_speaker {
+          @include height-width(3.8px, 27px);
+          @include position(absolute, 56px, 0, 0, 66px);
+        }
+
+        .screen-black {
+          @include height-width(254.8px, 145.8px);
+          @include position(absolute, 82px, 0, 0, 8px);
+        }
+
+        .phone-horizontal_shadow {
+          @include position(absolute, 20px, 0, 0, 0);
+        }
+      }
+
+      .horizontal {
+        left: 23%;
+      }
+    }
+  }
+}
+///////////////////////////////////////////////////////////////////////////////////
+@media (min-width: 375px) and (max-width: 768px) {
+  .container {
+    @include max-height-width(none, 688px);
+    margin: 0 auto;
+  }
+
+  .slider-wrap {
+    min-height: 450px;
+
+    .arrow_left {
+      @include height-width(27px, 16px);
+      @include position(absolute, 50%, 0, 0, 0);
+    }
+
+    .arrow_right {
+      @include height-width(27px, 16px);
+      @include position(absolute, 50%, 0, 0, 98%);
+    }
+
+    .slider_content {
+      margin: 0 40px;
+
+      .phone {
+        @include height-width(450px, 180.85px);
+
+        .phone-vertical_shadow {
+          @include height-width(363.74px, 180.85px);
+          @include position(absolute, 40px, 0, 0, 0);
+        }
+
+        .phone_body {
+          @include height-width(344.26px, 162.36px);
+          @include position(absolute, 40px, 0, 0, 0);
+        }
+
+        .phone_camera {
+          @include height-width(3px, 3px);
+          @include position(absolute, 45px, 0, 0, 78px);
+        }
+
+        .btn-home {
+          @include height-width(31.48px, 31.48px);
+          @include position(absolute, 345px, 0, 0, 66px);
+
+          .btn-home_inner {
+            @include height-width(12.35px, 12.35px);
+          }
+        }
+
+        .phone_speaker {
+          @include height-width(3.8px, 27px);
+          @include position(absolute, 56px, 0, 0, 66px);
+        }
+
+        .screen-black {
+          @include height-width(254.8px, 145.8px);
+          @include position(absolute, 82px, 0, 0, 8px);
+        }
+
+        .phone-horizontal_shadow {
+          @include position(absolute, 20px, 0, 0, 0);
+        }
+      }
+
+      .horizontal {
+        left: 23%;
+      }
     }
   }
 }
@@ -175,9 +329,7 @@ img{
   }
 
   .service-list {
-    @extend %flex-container;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    @include flex(flex, center, flex-start, wrap);
     margin: 0 -10px;
     padding-bottom: 50px;
 
@@ -186,14 +338,13 @@ img{
       margin: 10px;
     }
 
-    .service_info{
+    .service_info {
       @extend %list-info-grey-bg;
     }
   }
 
   .service-list > div {
-    @extend %flex-container;
-    align-items: flex-start;
+    @include flex(flex, center, flex-start, nowrap);
     color: $grey-dark-color;
   }
 
@@ -202,6 +353,19 @@ img{
 
     img {
       @include height-width(60px, 60px);
+    }
+  }
+}
+
+@media (min-width: 375px) and (max-width: 768px) {
+  .service-wrap {
+    .service-list {
+      margin: -20 -25px;
+
+      .service-list_block {
+        width: calc(50% - 50px);
+        margin: 20px 25px;
+      }
     }
   }
 }
@@ -240,9 +404,8 @@ img{
   }
 
   .portfolio_img {
-    @extend %flex-container;
+    @include flex(flex, center, center, wrap);
     margin: 0 -10px;
-    flex-wrap: wrap;
     padding-bottom: 75px;
   }
 
@@ -250,7 +413,16 @@ img{
     margin: 10px;
     width: calc(25% - 20px);
   }
+}
 
+@media (min-width: 375px) and (max-width: 768px) {
+  .portfolio-wrap {
+
+    .portfolio_img > div {
+      margin: 10px;
+      width: calc(33% - 20px);
+    }
+  }
 }
 
 .about-us-wrap {
@@ -265,10 +437,9 @@ img{
   }
 
   .staff-list {
-    @extend %flex-container;
+    @include flex(flex, center, flex-start, nowrap);
     margin: 0 -10px;
     padding-bottom: 15px;
-    align-items: flex-start;
 
     .employee {
       margin: 0 10px;
@@ -285,14 +456,50 @@ img{
       }
 
       .employee__social {
-        @extend %flex-container;
-        justify-content: flex-start;
+        @include flex(flex, flex-start, center, nowrap);
         margin: 0 -4px;
         padding-bottom: 70px;
 
         .employee__social_one {
           width: 32px;
           margin: 0 4px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 375px) and (max-width: 768px) {
+  .about-us-wrap {
+
+    .staff-list {
+      @include flex(flex, center, flex-start, nowrap);
+      margin: 0 -10px;
+      padding-bottom: 0;
+
+      .employee {
+        margin: 0 10px;
+        width: calc(33% - 20px);
+
+        .employee__info {
+          @extend %list-info-grey-bg;
+          padding-bottom: 20px;
+        }
+
+        h2 {
+          padding: 17px 0 7px 0;
+          color: $grey-dark-color;
+        }
+
+        .employee__social {
+          @include flex(flex, flex-start, center, nowrap);
+          margin: 0 -4px;
+          padding-bottom: 70px;
+
+          .employee__social_one {
+            width: 32px;
+            margin: 0 4px;
+          }
         }
       }
     }
@@ -312,8 +519,7 @@ img{
   }
 
   .form-contact {
-    @extend %flex-container;
-    align-items: flex-start;
+    @include flex(flex, center, flex-start, nowrap);
     margin: 0 -10px;
     padding-bottom: 67px;
 
@@ -321,7 +527,8 @@ img{
       margin: -8px 10px;
       width: calc(65.5% - 10px);
 
-      input, textarea {
+      input,
+      textarea {
         display: block;
         background-color: $input-bg-color;
         border-radius: 5px;
@@ -354,7 +561,8 @@ img{
         font-family: 'Lato', sans-serif;
       }
 
-      input:focus, textarea:focus {
+      input:focus,
+      textarea:focus {
         outline: 0;
         box-shadow: 0px 0px 11px 2px $pink-color;
       }
@@ -379,7 +587,9 @@ img{
         color: $pink-color;
       }
 
-      .location, .phone, .mail {
+      .location,
+      .phone,
+      .mail {
         @extend %list-info-grey-bg;
         color: $pink-color;
         line-height: 22px;
@@ -407,14 +617,14 @@ img{
   background-color: $secondary-color;
 
   .footer {
-    @extend %flex-container;
-    justify-content: space-between;
+    @include flex(flex, space-between, center, nowrap);
     color: $grey-dark-color;
     @include font-style(15px, 900, 18px, normal, none);
 
     .footer__social {
       margin: 0 -4px;
-      @extend %flex-container;
+      @include flex(flex, center, center, nowrap);
+
       padding: 22px 0;
     }
 
@@ -422,20 +632,4 @@ img{
       margin: 0 4px;
     }
   }
-
 }
-
-h1 {
-  @include font-style(30px, 900, 36px, normal, none);
-  padding: 59px 0 18px 0;
-}
-
-p {
-  @include font-style(18px, 300, 30px, normal, none);
-}
-
-h2 {
-  @include font-style(18px, 900, 18px, normal, none);
-  padding-bottom: 7px;
-}
-
