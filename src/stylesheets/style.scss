@@ -12,6 +12,12 @@ h1 {
   padding: 59px 0 18px 0;
 }
 
+@media (min-width: 375px) and (max-width: 768px) {
+  h1 {
+    padding: 40px 0 18px 0;
+  }
+}
+
 p {
   @include font-style(18px, 300, 30px, normal, none);
 }
@@ -21,22 +27,34 @@ h2 {
   padding-bottom: 7px;
 }
 
+@media (max-width: 375px) {
+  h1 {
+    padding: 25px 0 15px 0;
+  }
+}
+
+@media(max-width: 768px) {
+  .header-wrap, .slider-wrap, .service-wrap, .portfolio-wrap, .about-us-wrap, .form-wrap {
+    border: none;
+  }
+}
+
 .container {
   @include max-height-width(none, 940px);
   margin: 0 auto;
 }
 
-// @media (min-width: 375px) and (max-width: 768px) {
-//   .container {
-//     @include max-height-width(none, 688px);
-//   }
-// }
+@media (min-width: 375px) and (max-width: 768px) {
+  .container {
+    @include max-height-width(none, 688px);
+  }
+}
 
-// @media (max-width: 375px) {
-//   .container {
-//     @include max-height-width(none, 315px);
-//   }
-// }
+@media (max-width: 375px) {
+  .container {
+    @include max-height-width(none, 315px);
+  }
+}
 
 img {
   width: 100%;
@@ -156,8 +174,8 @@ img {
       }
 
       .phone__speaker {
-        @include height-width(5px, 36px);
-        @include position(absolute, 7%, 0, 0, 42%);
+        @include height-width(1%, 16.5%);
+        @include position(absolute, 8%, 0, 0, 42%);
       }
     }
 
@@ -168,6 +186,53 @@ img {
 
       .phone__body {
         top: 5%;
+      }
+    }
+  }
+}
+
+@media (min-width: 375px) and (max-width: 768px) {
+  .slider-wrap {
+    height: 450px;
+
+    .arrow_left {
+      @include position(absolute, 48%, 0, 0, 5px);
+    }
+
+    .arrow_right {
+      @include position(absolute, 48%, 0, 0, calc(100% - 21px));
+    }
+
+    .slider_content {
+      padding-top: 40px;
+
+      .phone {
+        @include height-width(363px, 182px);
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .slider-wrap {
+    height: 220px;
+
+    .arrow_left {
+      @include height-width(25px, 14px);
+      @include position(absolute, 48%, 0, 0, 1px);
+    }
+
+    .arrow_right {
+      @include height-width(25px, 14px);
+      @include position(absolute, 48%, 0, 0, calc(100% - 15px));
+    }
+
+    .slider_content {
+      margin: 0 8%;
+      padding-top: 20px;
+
+      .phone {
+        @include height-width(177px, 88px);
       }
     }
   }
@@ -215,12 +280,34 @@ img {
 
 @media (min-width: 375px) and (max-width: 768px) {
   .service-wrap {
+
     .service-list {
-      margin: -20 -25px;
+      margin: -20px -25px;
+      padding-bottom: 40px;
 
       .service-list_block {
         width: calc(50% - 50px);
         margin: 20px 25px;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .service-wrap {
+
+    .note {
+      padding-bottom: 25px;
+    }
+
+    .service-list {
+      margin: -7px 0;
+      padding-bottom: 15px;
+
+      .service-list_block {
+        width: 100%;
+        margin: 7px 0;
+        min-height: 100px;
       }
     }
   }
@@ -280,6 +367,20 @@ img {
   }
 }
 
+@media (max-width: 375px) {
+  .portfolio-wrap {
+
+    .portfolio_img {
+      padding-bottom: 40px;
+    }
+
+    .portfolio_img > div {
+      margin: 5px;
+      width: calc(50% - 10px);
+    }
+  }
+}
+
 .about-us-wrap {
   @extend %grey-bg;
 
@@ -326,34 +427,48 @@ img {
 
 @media (min-width: 375px) and (max-width: 768px) {
   .about-us-wrap {
+    .note {
+      padding-bottom: 25px;
+    }
+
     .staff-list {
-      @include flex(flex, center, flex-start, nowrap);
-      margin: 0 -10px;
       padding-bottom: 0;
 
       .employee {
-        margin: 0 10px;
-        width: calc(33% - 20px);
+        .employee__info {
+          padding-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .about-us-wrap {
+
+    .note {
+      padding-bottom: 15px;
+    }
+
+    .staff-list {
+      @include flex(flex, center, flex-start, wrap);
+      margin: -10px 0;
+      padding-bottom: 15px;
+
+      .employee {
+        margin: 10px 0;
+        width: 100%;
 
         .employee__info {
-          @extend %list-info-grey-bg;
-          padding-bottom: 20px;
+          padding-bottom: 10px;
         }
 
         h2 {
-          padding: 17px 0 7px 0;
-          color: $grey-dark-color;
+          padding: 10px 0 5px 0;
         }
 
         .employee__social {
-          @include flex(flex, flex-start, center, nowrap);
-          margin: 0 -4px;
-          padding-bottom: 70px;
-
-          .employee__social_one {
-            width: 32px;
-            margin: 0 4px;
-          }
+          padding-bottom: 0;
         }
       }
     }
@@ -467,6 +582,52 @@ img {
   }
 }
 
+@media (max-width: 375px) {
+  .form-wrap {
+
+    .note {
+      padding-bottom: 15px;
+    }
+
+    .form-contact {
+      @include flex(flex, center, flex-start, wrap);
+      margin: -15px 0;
+      padding-bottom: 40px;
+
+      .form-contact__fields {
+        margin: 15px 0px;
+        width: 100%;
+
+        .btn-submit {
+          width: 100%;
+        }
+      }
+
+      .form-contact__info {
+        margin: 10px 0;
+        width: 100%;
+
+        .form-contact__info_note {
+          padding-bottom: 10px;
+        }
+
+        .location::before {
+          margin-right: 10px;
+        }
+
+        .phone::before {
+          margin-right: 10px;
+        }
+
+        .mail::before {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+}
+
 .footer-wrap {
   background-color: $secondary-color;
 
@@ -484,6 +645,19 @@ img {
 
     .footer__social > div {
       margin: 0 4px;
+    }
+  }
+}
+
+@media (max-width: 375px){
+  .footer-wrap {
+
+    .footer > div:first-child {
+      display: none;
+    }
+
+    .footer {
+      @include flex(flex, center, center, nowrap);
     }
   }
 }
