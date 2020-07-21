@@ -22,9 +22,21 @@ h2 {
 }
 
 .container {
-  @include max-height-width(none, 960px);
+  @include max-height-width(none, 940px);
   margin: 0 auto;
 }
+
+// @media (min-width: 375px) and (max-width: 768px) {
+//   .container {
+//     @include max-height-width(none, 688px);
+//   }
+// }
+
+// @media (max-width: 375px) {
+//   .container {
+//     @include max-height-width(none, 315px);
+//   }
+// }
 
 img {
   width: 100%;
@@ -89,7 +101,7 @@ img {
 
 .slider-wrap {
   @extend %red-bg;
-  min-height: 600px;
+  height: 600px;
 
   .slider {
     position: relative;
@@ -97,221 +109,65 @@ img {
 
   .arrow_left {
     @include height-width(27px, 16px);
-    @include position(absolute, 50%, 0, 0, 0);
+    @include position(absolute, 50%, 0, 0, 5px);
   }
 
   .arrow_right {
     @include height-width(27px, 16px);
-    @include position(absolute, 50%, 0, 0, 98%);
+    @include position(absolute, 50%, 0, 0, calc(100% - 21px));
   }
 
   .slider_content {
-    margin: 0 72px;
+    margin: 0 7.5%;
     display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
     position: relative;
 
     .phone {
-      @include height-width(540px, 240px);
+      @include height-width(480px, 240px);
       position: relative;
-      right: -5px;
+      background-image: url(../img/sliderImg/vertical/shadow.png);
+      background-size: cover;
+      background-repeat: no-repeat;
 
-      .phone-vertical_shadow {
-        @include height-width(483px, 240px);
-        @include position(absolute, 54px, 0, 0, 0);
-        z-index: 1;
+      .phone__body {
+        @include height-width(95%, 90%);
+        position: relative;
       }
 
-      .phone_body {
-        @include height-width(458px, 216px);
-        @include position(absolute, 54px, 0, 0, 0);
-        z-index: 2;
+      .phone__camera {
+        @include height-width(1.95%, 3.5%);
+        @include position(absolute, 4%, 0, 0, 48%);
       }
 
-      .phone_camera {
-        @include height-width(9px, 9px);
-        @include position(absolute, 70.5px, 0, 0, 104px);
-        z-index: 3;
-      }
-
-      .btn-home {
-        background-color: $white-color;
-        @include height-width(41.88px, 41.88px);
+      .phone__home {
+        @include height-width(8.5%, 19%);
         border-radius: 50%;
-        @include position(absolute, 461px, 0, 0, 87.06px);
-        z-index: 3;
-
-        .btn-home_inner {
-          @include height-width(16.42px, 16.42px);
-          border-radius: 20%;
-          border: 3px solid #bababa;
-          margin: 13px auto;
-        }
+        @include position(absolute, 89%, 0, 0, 40%);
       }
 
-      .phone_speaker {
-        @include height-width(5px, 36px);
-        @include position(absolute, 90px, 0, 0, 91px);
-        z-index: 3;
-      }
-
-      .screen-black {
-        @include height-width(333px, 191px);
-        @include position(absolute, 119px, 0, 0, 13.5px);
-        z-index: 3;
+      .phone__screen {
+        @include height-width(72%, 87%);
         background-color: $black-color;
         border: 3px solid $grey-color;
         border-radius: 2%;
+        @include position(absolute, 15%, 0, 0, 6%);
       }
 
-      .phone-horizontal_shadow {
-        @include position(absolute, 29px, 0, 0, 0);
+      .phone__speaker {
+        @include height-width(5px, 36px);
+        @include position(absolute, 7%, 0, 0, 42%);
       }
     }
 
     .horizontal {
       transform: rotate(90deg);
-      left: 26%;
-    }
-  }
-}
+      right: 15%;
+      background-image: url(../img/sliderImg/horizontal/phone-horizontal-shadow.png);
 
-@media (min-width: 768px) and (max-width: 900px) {
-  .slider-wrap {
-    min-height: 450px;
-
-    .arrow_left {
-      @include height-width(27px, 16px);
-      @include position(absolute, 50%, 0, 0, 3%);
-    }
-
-    .arrow_right {
-      @include height-width(27px, 16px);
-      @include position(absolute, 50%, 0, 0, 95%);
-    }
-
-    .slider_content {
-      margin: 0 80px;
-
-      .phone {
-        @include height-width(450px, 180.85px);
-
-        .phone-vertical_shadow {
-          @include height-width(363.74px, 180.85px);
-          @include position(absolute, 40px, 0, 0, 0);
-        }
-
-        .phone_body {
-          @include height-width(344.26px, 162.36px);
-          @include position(absolute, 40px, 0, 0, 0);
-        }
-
-        .phone_camera {
-          @include height-width(3px, 3px);
-          @include position(absolute, 45px, 0, 0, 78px);
-        }
-
-        .btn-home {
-          background-color: $white-color;
-          @include height-width(31.48px, 31.48px);
-          border-radius: 50%;
-          @include position(absolute, 345px, 0, 0, 66px);
-
-          .btn-home_inner {
-            @include height-width(12.35px, 12.35px);
-            border-radius: 20%;
-            border: 3px solid #bababa;
-            margin: 10px auto;
-          }
-        }
-
-        .phone_speaker {
-          @include height-width(3.8px, 27px);
-          @include position(absolute, 56px, 0, 0, 66px);
-        }
-
-        .screen-black {
-          @include height-width(254.8px, 145.8px);
-          @include position(absolute, 82px, 0, 0, 8px);
-        }
-
-        .phone-horizontal_shadow {
-          @include position(absolute, 20px, 0, 0, 0);
-        }
-      }
-
-      .horizontal {
-        left: 23%;
-      }
-    }
-  }
-}
-///////////////////////////////////////////////////////////////////////////////////
-@media (min-width: 375px) and (max-width: 768px) {
-  .container {
-    @include max-height-width(none, 688px);
-    margin: 0 auto;
-  }
-
-  .slider-wrap {
-    min-height: 450px;
-
-    .arrow_left {
-      @include height-width(27px, 16px);
-      @include position(absolute, 50%, 0, 0, 0);
-    }
-
-    .arrow_right {
-      @include height-width(27px, 16px);
-      @include position(absolute, 50%, 0, 0, 98%);
-    }
-
-    .slider_content {
-      margin: 0 40px;
-
-      .phone {
-        @include height-width(450px, 180.85px);
-
-        .phone-vertical_shadow {
-          @include height-width(363.74px, 180.85px);
-          @include position(absolute, 40px, 0, 0, 0);
-        }
-
-        .phone_body {
-          @include height-width(344.26px, 162.36px);
-          @include position(absolute, 40px, 0, 0, 0);
-        }
-
-        .phone_camera {
-          @include height-width(3px, 3px);
-          @include position(absolute, 45px, 0, 0, 78px);
-        }
-
-        .btn-home {
-          @include height-width(31.48px, 31.48px);
-          @include position(absolute, 345px, 0, 0, 66px);
-
-          .btn-home_inner {
-            @include height-width(12.35px, 12.35px);
-          }
-        }
-
-        .phone_speaker {
-          @include height-width(3.8px, 27px);
-          @include position(absolute, 56px, 0, 0, 66px);
-        }
-
-        .screen-black {
-          @include height-width(254.8px, 145.8px);
-          @include position(absolute, 82px, 0, 0, 8px);
-        }
-
-        .phone-horizontal_shadow {
-          @include position(absolute, 20px, 0, 0, 0);
-        }
-      }
-
-      .horizontal {
-        left: 23%;
+      .phone__body {
+        top: 5%;
       }
     }
   }
@@ -417,7 +273,6 @@ img {
 
 @media (min-width: 375px) and (max-width: 768px) {
   .portfolio-wrap {
-
     .portfolio_img > div {
       margin: 10px;
       width: calc(33% - 20px);
@@ -471,7 +326,6 @@ img {
 
 @media (min-width: 375px) and (max-width: 768px) {
   .about-us-wrap {
-
     .staff-list {
       @include flex(flex, center, flex-start, nowrap);
       margin: 0 -10px;
