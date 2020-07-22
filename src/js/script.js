@@ -5,6 +5,10 @@ export class Script {
     this.appWrap = document.querySelector('.appWrap');
     this.opacityBlock = document.querySelector('.additionalBlock');
     this.logo = document.querySelector('.header_title');
+    this.arrowLeft = document.querySelector('.arrow_left');
+    this.arrowRight = document.querySelector('.arrow_right');
+    this.sliderTwoPhones = document.querySelector('.slider1');
+    this.sliderThreePhones = document.querySelector('.slider2');
 
     this._init();
   }
@@ -19,6 +23,15 @@ export class Script {
       'click',
       this._handleClickBurgerMenu.bind(this)
     );
+
+    this.arrowRight.addEventListener(
+      'click',
+      this._handleClickRightArrow.bind(this)
+    );
+  }
+
+  _handleClickRightArrow() {
+    this.sliderThreePhones.style.order = '2';
   }
 
   _handleClickBurgerMenu() {
