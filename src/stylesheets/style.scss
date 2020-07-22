@@ -3,8 +3,13 @@
 @import 'helpers/placeholders';
 @import 'helpers/mixins';
 
+body {
+  overflow-x: hidden;
+}
+
 .appWrap {
   @extend %font-family;
+  position: relative;
 }
 
 h1 {
@@ -33,8 +38,13 @@ h2 {
   }
 }
 
-@media(max-width: 768px) {
-  .header-wrap, .slider-wrap, .service-wrap, .portfolio-wrap, .about-us-wrap, .form-wrap {
+@media (max-width: 768px) {
+  .header-wrap,
+  .slider-wrap,
+  .service-wrap,
+  .portfolio-wrap,
+  .about-us-wrap,
+  .form-wrap {
     border: none;
   }
 }
@@ -68,6 +78,10 @@ img {
   .header {
     @include flex(flex, space-between, center, nowrap);
     min-height: 95px;
+
+    .mobile-menu {
+      display: none;
+    }
 
     .header_title {
       @include font-style(25px, bold, 30px, -0.03em, uppercase);
@@ -114,6 +128,96 @@ img {
         }
       }
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .header-wrap {
+    position: fixed;
+    height: 70px;
+    z-index: 100;
+    border: none;
+    width: 100%;
+
+    .header {
+      @include flex(flex, center, center, nowrap);
+      min-height: 70px;
+      position: relative;
+
+
+      .mobile-menu {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .menu__btn {
+          display: flex;
+          align-items: center;
+          position: fixed;
+          top: 25px;
+          left: 20px;
+          width: 25px;
+          height: 20px;
+          cursor: pointer;
+          background-image: url(../img/header/Burger-menu-icon.png);
+          transition: all 0.7s ease-in-out;
+          z-index: 15;
+        }
+
+        .menu__box {
+          display: block;
+          position: fixed;
+          visibility: hidden;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          padding: 200px 0 0 71px;
+          background-color: $secondary-color;
+          box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
+          list-style: none;
+          z-index: 10;
+          transition: all 0.7s;
+        }
+
+        .show_menu {
+          visibility: visible;
+          left: 0;
+        }
+
+        .menu__item {
+          display: block;
+          padding: 12px 0;
+          @include font-style(24px, 300, 29px, -0.035em, uppercase);
+          color: $white-color;
+          text-decoration: none;
+        }
+        &:hover {
+          color: $primary-color;
+        }
+      }
+
+      .header_title {
+        @include font-style(20px, bold, 24px, -0.03em, uppercase);
+        position: absolute;
+        z-index: 150;
+      }
+
+      .header_nav {
+        display: none;
+      }
+    }
+  }
+
+  .additionalBlock {
+    @include position(absolute, 0, 0, 0, 75%);
+    width: 25%;
+    height: 100%;
+    background-color: $black-color;
+    opacity: 0;
+    visibility: visible;
+    transition-property: all;
   }
 }
 
@@ -191,7 +295,7 @@ img {
   }
 }
 
-@media (min-width: 375px) and (max-width: 768px) {
+@media (min-width: 560px) and (max-width: 768px) {
   .slider-wrap {
     height: 450px;
 
@@ -213,9 +317,10 @@ img {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 560px) {
   .slider-wrap {
-    height: 220px;
+    height: 290px;
+    padding-top: 70px;
 
     .arrow_left {
       @include height-width(25px, 14px);
@@ -280,7 +385,6 @@ img {
 
 @media (min-width: 375px) and (max-width: 768px) {
   .service-wrap {
-
     .service-list {
       margin: -20px -25px;
       padding-bottom: 40px;
@@ -295,7 +399,6 @@ img {
 
 @media (max-width: 375px) {
   .service-wrap {
-
     .note {
       padding-bottom: 25px;
     }
@@ -369,7 +472,6 @@ img {
 
 @media (max-width: 375px) {
   .portfolio-wrap {
-
     .portfolio_img {
       padding-bottom: 40px;
     }
@@ -445,7 +547,6 @@ img {
 
 @media (max-width: 375px) {
   .about-us-wrap {
-
     .note {
       padding-bottom: 15px;
     }
@@ -584,7 +685,6 @@ img {
 
 @media (max-width: 375px) {
   .form-wrap {
-
     .note {
       padding-bottom: 15px;
     }
@@ -625,7 +725,6 @@ img {
       }
     }
   }
-
 }
 
 .footer-wrap {
@@ -649,9 +748,8 @@ img {
   }
 }
 
-@media (max-width: 375px){
+@media (max-width: 375px) {
   .footer-wrap {
-
     .footer > div:first-child {
       display: none;
     }
@@ -661,3 +759,12 @@ img {
     }
   }
 }
+
+//------------------------JS----------------------
+
+.turn-burger {
+  transform: rotate(90deg);
+}
+
+
+

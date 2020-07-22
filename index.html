@@ -6,20 +6,31 @@
     <title>SINGOLO</title>
     <link rel="stylesheet" href="./src/font/fontstyle.scss" />
     <link rel="stylesheet" href="./src/stylesheets/style.scss" />
+    <script src="./src/js/app.js" defer></script>
   </head>
   <body>
     <div class="appWrap">
-      <div class="header-wrap">
+      <div class="header-wrap" id="header">
         <div class="container">
           <div class="header">
+            <div class="mobile-menu">
+              <div class="menu__btn"></div>
+              <ul class="menu__box">
+                <li><a class="menu__item" href="#header">home</a></li>
+                <li><a class="menu__item" href="#services">services</a></li>
+                <li><a class="menu__item" href="#portfol">portfolio</a></li>
+                <li><a class="menu__item" href="#about">about</a></li>
+                <li><a class="menu__item" href="#contact">contact</a></li>
+              </ul>
+            </div>
             <div class="header_title">singolo<span>*</span></div>
             <div class="header_nav">
               <ul class="nav">
-                <li><a href="#">home</a></li>
-                <li><a href="#">services</a></li>
-                <li><a href="#">portfolio</a></li>
-                <li><a href="#">about</a></li>
-                <li><a href="#">contact</a></li>
+                <li><a href="#header">home</a></li>
+                <li><a href="#services">services</a></li>
+                <li><a href="#portfol">portfolio</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#contact">contact</a></li>
               </ul>
             </div>
           </div>
@@ -107,7 +118,7 @@
           </div>
         </div>
       </div>
-      <div class="service-wrap">
+      <div class="service-wrap" id="services">
         <div class="container">
           <div class="service">
             <h1 class="service-title">Our Services</h1>
@@ -212,7 +223,7 @@
           </div>
         </div>
       </div>
-      <div class="portfolio-wrap">
+      <div class="portfolio-wrap" id="portfol">
         <div class="container">
           <div class="portfolio">
             <h1>Portfolio</h1>
@@ -267,7 +278,7 @@
           </div>
         </div>
       </div>
-      <div class="about-us-wrap">
+      <div class="about-us-wrap" id="about">
         <div class="container">
           <div class="about-us">
             <h1 class="about-us-title">About us</h1>
@@ -401,7 +412,7 @@
           </div>
         </div>
       </div>
-      <div class="form-wrap">
+      <div class="form-wrap" id="contact">
         <div class="container">
           <div class="form">
             <h1 class="form-title">Get a Quote</h1>
@@ -488,6 +499,7 @@
           </div>
         </div>
       </div>
+      <div class="additionalBlock"></div>
     </div>
   </body>
 </html>
