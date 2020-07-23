@@ -1,0 +1,32 @@
+.footer-wrap {
+  background-color: $secondary-color;
+
+  .footer {
+    @include flex(flex, space-between, center, nowrap);
+    color: $grey-dark-color;
+    @include font-style(15px, 900, 18px, normal, none);
+
+    .footer__social {
+      margin: 0 -4px;
+      @include flex(flex, center, center, nowrap);
+
+      padding: 22px 0;
+    }
+
+    .footer__social > div {
+      margin: 0 4px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .footer-wrap {
+    .footer > div:first-child {
+      display: none;
+    }
+
+    .footer {
+      @include flex(flex, center, center, nowrap);
+    }
+  }
+}

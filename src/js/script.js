@@ -3,12 +3,17 @@ export class Script {
     this.burgerBtn = document.querySelector('.menu__btn');
     this.burgerMenuBox = document.querySelector('.menu__box');
     this.appWrap = document.querySelector('.appWrap');
+    this.sliderWrap = document.querySelector('.slider-wrap');
     this.opacityBlock = document.querySelector('.additionalBlock');
     this.logo = document.querySelector('.header_title');
+
+    ////////////////////////////////////////////////
     this.arrowLeft = document.querySelector('.arrow_left');
     this.arrowRight = document.querySelector('.arrow_right');
-    this.sliderTwoPhones = document.querySelector('.slider1');
-    this.sliderThreePhones = document.querySelector('.slider2');
+    ///////////////////////////////////////////////
+    this.firstSlide = document.querySelector('#firstSlide');
+    this.secondSlide = document.querySelector('#secondSlide');
+    this.sliderArr = [this.firstSlide, this.secondSlide];
 
     this._init();
   }
@@ -26,12 +31,17 @@ export class Script {
 
     this.arrowRight.addEventListener(
       'click',
-      this._handleClickRightArrow.bind(this)
+      this._handleClickLeftRightArrow.bind(this)
+    );
+
+    this.arrowLeft.addEventListener(
+      'click',
+      this._handleClickLeftRightArrow.bind(this)
     );
   }
 
-  _handleClickRightArrow() {
-    this.sliderThreePhones.style.order = '2';
+  _handleClickLeftRightArrow() {
+    this._changeSlides();
   }
 
   _handleClickBurgerMenu() {
@@ -55,5 +65,23 @@ export class Script {
     this.burgerMenuBox.classList.remove('show_menu');
     this.opacityBlock.style.opacity = '0';
     this.opacityBlock.style.transitionDuration = '0.1s';
+  }
+
+  _changeSlides() {
+    this.sliderArr.forEach((item) => {
+      item.classList.toggle('slide-hide');
+      item.classList.toggle('slide-show');
+    });
+    this.sliderWrap.classList.toggle('slider-wrap__bg_blue');
+    if (this.sliderWrap.classList.contains('slider-wrap__bg_blue')) {
+      this._changeArrowColor('5679D4');
+    } else {
+      this._changeArrowColor('E94348');
+    }
+  }
+
+  _changeArrowColor(color) {
+    document.querySelector('#arrLeftColor').style.fill = color;
+    document.querySelector('#arrRightColor').style.fill = color;
   }
 }

@@ -1,0 +1,154 @@
+@import 'reset/reset';
+@import 'helpers/variables';
+@import 'helpers/placeholders';
+@import 'helpers/mixins';
+
+.header-wrap {
+  background-color: $secondary-color;
+  color: $white-color;
+  border-bottom: 6px solid $border-color;
+
+  .header {
+    @include flex(flex, space-between, center, nowrap);
+    min-height: 95px;
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .header_title {
+      @include font-style(25px, bold, 30px, -0.03em, uppercase);
+
+      span {
+        color: $primary-color;
+      }
+    }
+
+    .header_nav {
+      @include font-style(12px, bold, 14px, -0.035em, uppercase);
+
+      ul {
+        padding-left: 0;
+
+        li {
+          display: inline-block;
+          list-style: none;
+          margin-right: 10px;
+
+          &:before {
+            content: '\00B7';
+            margin-right: 11px;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &:first-child {
+            &:before {
+              content: ' ';
+            }
+          }
+
+          a {
+            text-decoration: none;
+            color: $white-color;
+
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header-wrap {
+    position: fixed;
+    height: 70px;
+    z-index: 100;
+    border: none;
+    width: 100%;
+
+    .header {
+      @include flex(flex, center, center, nowrap);
+      min-height: 70px;
+      position: relative;
+
+      .mobile-menu {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        .menu__btn {
+          display: flex;
+          align-items: center;
+          position: fixed;
+          top: 25px;
+          left: 20px;
+          width: 25px;
+          height: 20px;
+          cursor: pointer;
+          background-image: url(../img/header/Burger-menu-icon.png);
+          transition: all 0.7s ease-in-out;
+          z-index: 15;
+        }
+
+        .menu__box {
+          display: block;
+          position: fixed;
+          visibility: hidden;
+          top: 0;
+          left: -100%;
+          width: 75%;
+          height: 100%;
+          padding: 200px 0 0 71px;
+          background-color: $secondary-color;
+          box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
+          list-style: none;
+          z-index: 10;
+          transition: all 0.7s;
+        }
+
+        .show_menu {
+          visibility: visible;
+          left: 0;
+        }
+
+        .menu__item {
+          display: block;
+          padding: 12px 0;
+          @include font-style(24px, 300, 29px, -0.035em, uppercase);
+          color: $white-color;
+          text-decoration: none;
+        }
+        &:hover {
+          color: $primary-color;
+        }
+      }
+
+      .header_title {
+        @include font-style(20px, bold, 24px, -0.03em, uppercase);
+        position: absolute;
+        z-index: 150;
+      }
+
+      .header_nav {
+        display: none;
+      }
+    }
+  }
+
+  .additionalBlock {
+    @include position(absolute, 0, 0, 0, 75%);
+    width: 25%;
+    height: 100%;
+    background-color: $black-color;
+    opacity: 0;
+    visibility: visible;
+    transition-property: all;
+  }
+}
