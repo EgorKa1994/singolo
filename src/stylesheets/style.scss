@@ -86,6 +86,24 @@ img {
   width: 100%;
 }
 
+@keyframes size {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.employee__social_one, .footer__social > div {
+  &:hover {
+    animation: size 1s 3;
+  }
+}
+
 //------------------------JS----------------------
 
 .turn-burger {

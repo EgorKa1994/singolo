@@ -1,4 +1,3 @@
-// import { createLinkList } from './img';
 import { Portfolio } from './portfolio';
 
 export class Script {
