@@ -5,14 +5,9 @@ export class Script {
     this.appWrap = document.querySelector('.appWrap');
     this.container = document.querySelector('.container');
 
-    //////////header
-    this.burgerBtn = document.querySelector('.menu__btn');
-    this.burgerMenuBox = document.querySelector('.menu__box');
-
     //////////slider
     this.sliderWrap = document.querySelector('.slider-wrap');
     this.opacityBlock = document.querySelector('.additionalBlock');
-    this.logo = document.querySelector('.header_title');
 
     this.arrowLeft = document.querySelector('.arrow_left');
     this.arrowRight = document.querySelector('.arrow_right');
@@ -36,16 +31,6 @@ export class Script {
   }
 
   _init() {
-    this.burgerBtn.addEventListener(
-      'click',
-      this._handleClickBurgerIcon.bind(this)
-    );
-
-    this.burgerMenuBox.addEventListener(
-      'click',
-      this._handleClickBurgerMenu.bind(this)
-    );
-
     this.arrowRight.addEventListener(
       'click',
       this._handleClickLeftRightArrow.bind(this)
@@ -71,21 +56,21 @@ export class Script {
     this._changeSlides();
   }
 
-  _handleClickBurgerMenu() {
-    this._closeBurgerMenu();
-  }
+  // _handleClickBurgerMenu() {
+  //   this._closeBurgerMenu();
+  // }
 
-  _handleClickBurgerIcon() {
-    this.burgerBtn.classList.toggle('turn-burger');
-    this.burgerMenuBox.classList.toggle('show_menu');
-    if (this.burgerMenuBox.classList.contains('show_menu')) {
-      this.opacityBlock.style.opacity = '.3';
-      this.opacityBlock.style.transitionDuration = '2.5s';
-      this.opacityBlock.style.transitionTimingFunction = 'ease-in';
-    } else {
-      this._closeBurgerMenu();
-    }
-  }
+  // _handleClickBurgerIcon() {
+  //   this.burgerBtn.classList.toggle('turn-burger');
+  //   this.burgerMenuBox.classList.toggle('show_menu');
+  //   if (this.burgerMenuBox.classList.contains('show_menu')) {
+  //     this.opacityBlock.style.opacity = '.3';
+  //     this.opacityBlock.style.transitionDuration = '2.5s';
+  //     this.opacityBlock.style.transitionTimingFunction = 'ease-in';
+  //   } else {
+  //     this._closeBurgerMenu();
+  //   }
+  // }
 
   _listenSliderBlockPosition() {
     if (this.container.offsetWidth <= 375 && window.pageYOffset >= 95) {
