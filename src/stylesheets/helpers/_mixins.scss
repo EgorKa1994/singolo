@@ -30,3 +30,15 @@
   align-items: $alignItems;
   flex-wrap: $wrap;
 }
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin transition($property, $duration, $timingFunct) {
+  -webkit-transition: $property $duration $timingFunct;
+  -o-transition: $property $duration $timingFunct;
+  transition: $property $duration $timingFunct;
+}

@@ -25,7 +25,7 @@ body {
 }
 
 path {
-  transition: all 2s ease-in-out;
+  @include transition(all, 2s, ease-in-out);
 }
 
 h1 {
@@ -86,28 +86,41 @@ img {
   width: 100%;
 }
 
-@keyframes size {
+@-webkit-keyframes size {
   from {
-    transform: scale(1);
+    @include transform(scale(1));
   }
   50% {
-    transform: scale(1.5);
+    @include transform(scale(1.5));
   }
   to {
-    transform: scale(1);
+    @include transform(scale(1));
+  }
+}
+
+@keyframes size {
+  from {
+    @include transform(scale(1));
+  }
+  50% {
+    @include transform(scale(1.5));
+  }
+  to {
+    @include transform(scale(1));
   }
 }
 
 .employee__social_one, .footer__social > div {
   &:hover {
-    animation: size 1s 3;
+    -webkit-animation: size 1s 3;
+            animation: size 1s 3;
   }
 }
 
 //------------------------JS----------------------
 
 .turn-burger {
-  transform: rotate(90deg);
+  @include transform(rotate(90deg));
 }
 
 .slide-show {

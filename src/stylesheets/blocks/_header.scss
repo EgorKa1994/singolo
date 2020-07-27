@@ -93,7 +93,7 @@
           height: 20px;
           cursor: pointer;
           background-image: url(../img/header/Burger-menu-icon.png);
-          transition: all 0.7s ease-in-out;
+          @include transition(all, 0.7s, ease-in-out);
           z-index: 15;
         }
 
@@ -110,7 +110,7 @@
           box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
           list-style: none;
           z-index: 10;
-          transition: all 0.7s;
+          @include transition(all, 0.7s, ease);
         }
 
         .show_menu {
@@ -149,6 +149,5 @@
     background-color: $black-color;
     opacity: 0;
     visibility: visible;
-    transition-property: all;
   }
 }
